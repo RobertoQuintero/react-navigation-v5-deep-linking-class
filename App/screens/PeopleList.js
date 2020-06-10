@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, View, Text, Alert, ActivityIndicator } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export const PostsList = ({ navigation }) => {
-  const [posts, setPosts] = useState([]);
+export const PeopleList = ({ navigation }) => {
+  const [people, setPeople] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('https://swapi.dev/api/people')
       .then((res) => res.json())
       .then((res) => {
-        setPosts(res);
+        setPeople(res.results);
       })
       .catch((error) => {
         Alert.alert('an error occurred! See console for more info.');
@@ -24,24 +24,22 @@ export const PostsList = ({ navigation }) => {
   return (
     <FlatList
       style={{ backgroundColor: '#fff' }}
-      data={posts}
+      data={people}
       renderItem={({ item }) => (
         <TouchableOpacity
           onPress={() =>
-            navigation.push('PostDetails', {
-              title: item.title,
-              body: item.body,
-              id: item.id,
+            navigation.push('PeopleDetails', {
+              details: item,
             })
           }
         >
           <View
             style={{
               paddingHorizontal: 10,
-              paddingVertical: 10,
+              paddingVertical: 15,
             }}
           >
-            <Text>{item.title}</Text>
+            <Text style={{ fontSize: 18 }}>{item.name}</Text>
           </View>
         </TouchableOpacity>
       )}
@@ -54,7 +52,7 @@ export const PostsList = ({ navigation }) => {
           }}
         />
       )}
-      keyExtractor={(item) => `${item.id}`}
+      keyExtractor={(item) => item.url}
       ListFooterComponent={() => {
         if (loading) {
           return (

@@ -4,22 +4,22 @@ import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { PostsList } from './screens/PostsList';
-import { PostDetails } from './screens/PostDetails';
+import { PeopleList } from './screens/PeopleList';
+import { PeopleDetails } from './screens/PeopleDetails';
 import { Profile } from './screens/Profile';
 
-const PostsStack = createStackNavigator();
-const Posts = () => (
-  <PostsStack.Navigator>
-    <PostsStack.Screen name="Posts" component={PostsList} />
-    <PostsStack.Screen
-      name="PostDetails"
-      component={PostDetails}
+const PeopleStack = createStackNavigator();
+const People = () => (
+  <PeopleStack.Navigator>
+    <PeopleStack.Screen name="People" component={PeopleList} />
+    <PeopleStack.Screen
+      name="PeopleDetails"
+      component={PeopleDetails}
       options={() => ({
         title: '',
       })}
     />
-  </PostsStack.Navigator>
+  </PeopleStack.Navigator>
 );
 
 const ProfileStack = createStackNavigator();
@@ -35,9 +35,9 @@ export default () => {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen
-          name="PostsTab"
-          component={Posts}
-          options={{ title: 'Posts' }}
+          name="PeopleTab"
+          component={People}
+          options={{ title: 'People' }}
         />
         <Tab.Screen
           name="ProfileTab"
