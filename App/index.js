@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { PeopleList } from './screens/PeopleList';
 import { PeopleDetails } from './screens/PeopleDetails';
-import { Profile } from './screens/Profile';
+import { Intro } from './screens/Intro';
 
 const PeopleStack = createStackNavigator();
 const People = () => (
@@ -23,9 +23,9 @@ const People = () => (
 );
 
 const ProfileStack = createStackNavigator();
-const ProfileScreen = () => (
+const IntroScreen = () => (
   <ProfileStack.Navigator>
-    <ProfileStack.Screen name="Profile" component={Profile} />
+    <ProfileStack.Screen name="Intro" component={Intro} />
   </ProfileStack.Navigator>
 );
 
@@ -50,16 +50,16 @@ export default () => {
         },
       }}
     >
-      <Tab.Navigator initialRouteName="ProfileTab">
+      <Tab.Navigator>
+        <Tab.Screen
+          name="IntroTab"
+          component={IntroScreen}
+          options={{ title: 'Itro' }}
+        />
         <Tab.Screen
           name="PeopleTab"
           component={People}
           options={{ title: 'People' }}
-        />
-        <Tab.Screen
-          name="ProfileTab"
-          component={ProfileScreen}
-          options={{ title: 'Profile' }}
         />
       </Tab.Navigator>
     </NavigationContainer>
