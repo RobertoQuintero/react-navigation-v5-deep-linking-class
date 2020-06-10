@@ -12,7 +12,7 @@ const valueMap = {
   gender: 'Gender',
 };
 
-export const PeopleDetails = ({ route }) => {
+export const PersonDetails = ({ route }) => {
   const params = route.params || {};
   const { details = {}, id } = params;
   const [displayDetails, setDisplayDetails] = useState({});

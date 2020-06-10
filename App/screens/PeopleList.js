@@ -28,7 +28,7 @@ export const PeopleList = ({ navigation }) => {
       renderItem={({ item }) => (
         <TouchableOpacity
           onPress={() =>
-            navigation.push('PeopleDetails', {
+            navigation.push('PersonDetails', {
               details: item,
             })
           }
