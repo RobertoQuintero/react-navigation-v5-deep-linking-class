@@ -54,7 +54,7 @@ export default () => {
         <Tab.Screen
           name="IntroTab"
           component={IntroScreen}
-          options={{ title: 'Itro' }}
+          options={{ title: 'Intro' }}
         />
         <Tab.Screen
           name="PeopleTab"
