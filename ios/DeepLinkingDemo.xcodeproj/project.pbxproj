@@ -194,7 +194,6 @@
 				60CBBF47EEE3D433BCFE1B93 /* Pods-DeepLinkingDemo-tvOSTests.debug.xcconfig */,
 				9AC4AB189CCA300EF8101D44 /* Pods-DeepLinkingDemo-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

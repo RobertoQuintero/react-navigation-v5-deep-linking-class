@@ -32,8 +32,25 @@ const ProfileScreen = () => (
 const Tab = createBottomTabNavigator();
 export default () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
+    <NavigationContainer
+      linking={{
+        prefixes: ['swapidemo://'],
+        config: {
+          PeopleTab: {
+            initialRouteName: 'People',
+            screens: {
+              People: {
+                path: 'people',
+              },
+              PeopleDetails: {
+                path: 'person/:id',
+              },
+            },
+          },
+        },
+      }}
+    >
+      <Tab.Navigator initialRouteName="ProfileTab">
         <Tab.Screen
           name="PeopleTab"
           component={People}
