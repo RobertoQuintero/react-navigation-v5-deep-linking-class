@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { ScrollView, Text, Alert } from 'react-native';
+import React from 'react';
+import { ScrollView, Text } from 'react-native';
 
 const valueMap = {
   name: 'Name',
@@ -14,33 +14,7 @@ const valueMap = {
 
 export const PersonDetails = ({ route }) => {
   const params = route.params || {};
-  const { details = {}, id } = params;
-  const [displayDetails, setDisplayDetails] = useState({});
-
-  const emptyDetails = Object.keys(details).length === 0;
-
-  useEffect(() => {
-    if (!emptyDetails) {
-      setDisplayDetails(details);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (emptyDetails && id) {
-      fetch(`https://swapi.dev/api/people/${id}`)
-        .then((res) => res.json())
-        .then((res) => {
-          setDisplayDetails(res);
-        })
-        .catch((error) => {
-          Alert.alert('an error occurred! See console for more info.');
-          console.log(error);
-        })
-        .finally(() => {
-          // setLoading(false);
-        });
-    }
-  }, [id]);
+  const { details = {} } = params;
 
   return (
     <ScrollView
@@ -51,14 +25,14 @@ export const PersonDetails = ({ route }) => {
       }}
     >
       {Object.keys(valueMap).map((key) => {
-        if (!displayDetails[key]) {
+        if (!details[key]) {
           return null;
         }
 
         return (
           <Text style={{ fontSize: 18, marginTop: 10 }} key={key}>
             <Text style={{ fontWeight: 'bold' }}>{`${valueMap[key]}: `}</Text>
-            {displayDetails[key]}
+            {details[key]}
           </Text>
         );
       })}
