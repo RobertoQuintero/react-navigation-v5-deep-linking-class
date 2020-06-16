@@ -29,10 +29,17 @@ const IntroScreen = () => (
   </ProfileStack.Navigator>
 );
 
+const linkingConfig = {
+  prefixes: ['swapidemo://'],
+  config: {
+    PeopleTab: 'people',
+  },
+};
+
 const Tab = createBottomTabNavigator();
 export default () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linkingConfig}>
       <Tab.Navigator>
         <Tab.Screen
           name="IntroTab"
