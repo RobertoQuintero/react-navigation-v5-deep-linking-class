@@ -39,7 +39,7 @@ const linkingConfig = {
           path: 'people',
         },
         PersonDetails: {
-          path: 'person',
+          path: 'person/:id',
         },
       },
     },
