@@ -34,7 +34,7 @@ export default () => {
   return (
     <NavigationContainer
       linking={{
-        prefixes: ['swapidemo://'],
+        prefixes: ['swapidemo://', 'https://reactnativeschool.com'],
         config: {
           PeopleTab: {
             initialRouteName: 'People',
