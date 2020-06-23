@@ -30,9 +30,17 @@ const IntroScreen = () => (
 );
 
 const Tab = createBottomTabNavigator();
+
+const linkingConfig = {
+  prefixes: ['swapidemo://'],
+  config: {
+    PeopleTab: 'people',
+  },
+};
+
 export default () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linkingConfig}>
       <Tab.Navigator>
         <Tab.Screen
           name="IntroTab"
