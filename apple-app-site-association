@@ -4,7 +4,7 @@
     "details": [
       {
         "appID": "YVPMY6223N.com.handlebarlabs.DeepLinkingDemo",
-        "paths": ["*"]
+        "paths": ["/person/*", "/people"]
       }
     ]
   }
