@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "YVPMY6223N.com.handlebarlabs.DeepLinkingDemo",
+        "paths": ["/person/*", "/people"]
+      }
+    ]
+  }
+}
