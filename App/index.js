@@ -30,7 +30,7 @@ const IntroScreen = () => (
 );
 
 const linkingConfig = {
-  prefixes: ['swapidemo://'],
+  prefixes: ['swapidemo://', 'https://reactnativeschool.com'],
   config: {
     PeopleTab: {
       initialRouteName: 'People',
