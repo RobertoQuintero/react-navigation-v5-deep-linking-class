@@ -1,5 +1,5 @@
-import React from 'react';
-import { ScrollView, Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { ScrollView, Text, ActivityIndicator, View } from 'react-native';
 
 const valueMap = {
   name: 'Name',
@@ -14,7 +14,30 @@ const valueMap = {
 
 export const PersonDetails = ({ route }) => {
   const params = route.params || {};
-  const { details = {} } = params;
+  const { details = {}, id } = params;
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (Object.keys(details).length > 0) {
+      setLoading(false);
+    }
+  }, []);
+
+  if (loading) {
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: '#fff',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
 
   return (
     <ScrollView
