@@ -26,6 +26,19 @@
           <category android:name="android.intent.category.DEFAULT" />
           <category android:name="android.intent.category.BROWSABLE" />
           <data android:scheme="swapidemo" />
+
+          <data
+            android:scheme="https"
+            android:host="reactnativeschool.com"
+            android:pathPrefix="/person"
+          />
+
+          <data
+            android:scheme="https"
+            android:host="reactnativeschool.com"
+            android:pathPrefix="/people"
+          />
+
         </intent-filter>
 
       </activity>

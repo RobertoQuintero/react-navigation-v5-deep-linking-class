@@ -32,7 +32,7 @@ const IntroScreen = () => (
 const Tab = createBottomTabNavigator();
 
 const linkingConfig = {
-  prefixes: ['swapidemo://'],
+  prefixes: ['swapidemo://', 'https://reactnativeschool.com'],
   config: {
     PeopleTab: {
       initialRouteName: 'People',
