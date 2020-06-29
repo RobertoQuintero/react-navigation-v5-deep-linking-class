@@ -34,7 +34,17 @@ const Tab = createBottomTabNavigator();
 const linkingConfig = {
   prefixes: ['swapidemo://'],
   config: {
-    PeopleTab: 'people',
+    PeopleTab: {
+      initialRouteName: 'People',
+      screens: {
+        People: {
+          path: 'people',
+        },
+        PersonDetails: {
+          path: 'person',
+        },
+      },
+    },
   },
 };
 
