@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, Text, ActivityIndicator, View } from 'react-native';
+import { ScrollView, Text, ActivityIndicator, View, Alert } from 'react-native';
 
 const valueMap = {
   name: 'Name',
@@ -17,10 +17,22 @@ export const PersonDetails = ({ route }) => {
   const { details = {}, id } = params;
 
   const [loading, setLoading] = useState(true);
+  const [displayDetails, setDisplayDetails] = useState(details);
 
   useEffect(() => {
     if (Object.keys(details).length > 0) {
       setLoading(false);
+    } else if (id) {
+      fetch(`https://swapi.dev/api/people/${id}`)
+        .then((response) => response.json())
+        .then((response) => {
+          setLoading(false);
+          setDisplayDetails(response);
+        })
+        .catch((error) => {
+          Alert.alert('an error occurred! See console for more info.');
+          console.log(error);
+        });
     }
   }, []);
 
@@ -48,14 +60,14 @@ export const PersonDetails = ({ route }) => {
       }}
     >
       {Object.keys(valueMap).map((key) => {
-        if (!details[key]) {
+        if (!displayDetails[key]) {
           return null;
         }
 
         return (
           <Text style={{ fontSize: 18, marginTop: 10 }} key={key}>
             <Text style={{ fontWeight: 'bold' }}>{`${valueMap[key]}: `}</Text>
-            {details[key]}
+            {displayDetails[key]}
           </Text>
         );
       })}
